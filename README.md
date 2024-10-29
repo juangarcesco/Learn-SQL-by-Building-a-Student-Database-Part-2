@@ -118,23 +118,23 @@ Nota: El shebang (#!) es una secuencia que se coloca al inicio de un script en s
 110. Consulta `SELECT DISTINCT(major) FROM students INNER JOIN majors ON students.major_id = majors.major_id;`
 111. Consulta `SELECT * FROM students RIGHT JOIN majors ON students.major_id = majors.major_id;`
 112. Cosulta `SELECT * FROM students RIGHT JOIN majors ON students.major_id = majors.major_id WHERE student_id IS NULL;`
-113. Consulta `SELECT major FROM students RIGHT JOIN majors ON students.major_id = majors.major_id WHERE student_id IS NULL;`
-114. Consulta `SELECT * FROM students LEFT JOIN majors ON students.major_id = majors.major_id;`
-115. Consulta `SELECT * FROM students LEFT JOIN majors ON students.major_id = majors.major_id WHERE major='Data Science' OR gpa >= 3.8;`
-116. Consulta `SELECT first_name, last_name, major, gpa FROM students LEFT JOIN majors ON students.major_id = majors.major_id WHERE major='Data Science' OR gpa >= 3.8;`
-117. Consulta `SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id;`
-118. Consulta `SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id WHERE first_name LIKE '%ri%' OR major LIKE '%ri%';`
-119. Consulta `SELECT first_name, major FROM students FULL JOIN majors ON students.major_id = majors.major_id WHERE first_name LIKE '%ri%' OR major LIKE '%ri%';`
+113. Consulta `SELECT major FROM students RIGHT JOIN majors ON students.major_id = majors.major_id WHERE student_id IS NULL;`$${\color{blue}PSQL}$$
+114. Consulta `SELECT * FROM students LEFT JOIN majors ON students.major_id = majors.major_id;`$${\color{blue}PSQL}$$
+115. Consulta `SELECT * FROM students LEFT JOIN majors ON students.major_id = majors.major_id WHERE major='Data Science' OR gpa >= 3.8;`$${\color{blue}PSQL}$$
+116. Consulta `SELECT first_name, last_name, major, gpa FROM students LEFT JOIN majors ON students.major_id = majors.major_id WHERE major='Data Science' OR gpa >= 3.8;`$${\color{blue}PSQL}$$
+117. Consulta `SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id;`$${\color{blue}PSQL}$$
+118. Consulta `SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id WHERE first_name LIKE '%ri%' OR major LIKE '%ri%';`$${\color{blue}PSQL}$$
+119. Consulta `SELECT first_name, major FROM students FULL JOIN majors ON students.major_id = majors.major_id WHERE first_name LIKE '%ri%' OR major LIKE '%ri%';`$${\color{blue}PSQL}$$
 120. Agregar `echo "$($PSQL "SELECT major FROM students FULL JOIN majors ON students.major_id = majors.major_id WHERE major IS NOT NULL AND (student_id IS NULL OR first_name ILIKE '%ma%') ORDER BY major")"`
 121. Correr `./student_info.sh`
 122. Agregar `echo -e "\nList of unique courses, in reverse alphabetical order, that no student or 'Obie Hilpert' is taking:"`
-123. `Consulta SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id;`
-124. `Consulta SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id;`
-125. `Consulta SELECT students.major_id FROM students FULL JOIN majors AS m ON students.major_id = m.major_id;`
-126. `Consulta SELECT s.major_id FROM students AS s FULL JOIN majors AS m ON s.major_id = m.major_id;`
-127. `Consulta SELECT * FROM students FULL JOIN majors USING(major_id);`
-128. Consulta `SELECT * FROM students FULL JOIN majors USING(major_id) FULL JOIN majors_courses USING(major_id);`
-129. Consulta `SELECT * FROM students FULL JOIN majors USING(major_id) FULL JOIN majors_courses USING(major_id) FULL JOIN courses USING(course_id);`
+123. `Consulta SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id;`$${\color{blue}PSQL}$$
+124. `Consulta SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id;`$${\color{blue}PSQL}$$
+125. `Consulta SELECT students.major_id FROM students FULL JOIN majors AS m ON students.major_id = m.major_id;`$${\color{blue}PSQL}$$
+126. `Consulta SELECT s.major_id FROM students AS s FULL JOIN majors AS m ON s.major_id = m.major_id;`$${\color{blue}PSQL}$$
+127. `Consulta SELECT * FROM students FULL JOIN majors USING(major_id);`$${\color{blue}PSQL}$$
+128. Consulta `SELECT * FROM students FULL JOIN majors USING(major_id) FULL JOIN majors_courses USING(major_id);`$${\color{blue}PSQL}$$
+129. Consulta `SELECT * FROM students FULL JOIN majors USING(major_id) FULL JOIN majors_courses USING(major_id) FULL JOIN courses USING(course_id);`$${\color{blue}PSQL}$$
 130. Agregar `echo `"$($PSQL "SELECT DISTINCT(course) FROM students RIGHT JOIN majors USING(major_id) INNER JOIN majors_courses USING(major_id) INNER JOIN courses USING(course_id) WHERE (first_name = 'Obie' AND last_name = 'Hilpert') OR student_id IS NULL ORDER BY course DESC")"`
 131. Correr `./student_info.sh`
 132. Agregar `echo -e "\nList of courses, in alphabetical order, with only one student enrolled:"`
