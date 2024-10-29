@@ -10,7 +10,7 @@ Este es un resumen de los pasos principales para conectar, consultar y automatiz
 2. Conectarse a la base de datos con `--username=freecodecamp --dbname=postgres`$${\color{red}Bash}$$
 3. Listar con `/l` en el psql $${\color{blue}PSQL}$$
 4. Se divide la terminal y se conecta la base de datos estudiantes con el comando `psql -U postgres < students.sql`
-5. Listamos students.sql con  /l en psql
+5. Listamos students.sql con `/l` en psql
 6. Conectar a la base de datos students `\c students`
 7. Mostrar la base de datos con `\d` en psql
 8. .Mostamos solo students `\d students`
