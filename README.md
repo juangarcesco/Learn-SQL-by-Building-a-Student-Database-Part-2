@@ -53,60 +53,59 @@ Nota: El shebang (#!) es una secuencia que se coloca al inicio de un script en s
 44. Agregar `echo -e "\nLast name of students whose last name contains a case insensitive 'sa' or have an 'r' as the second to last letter:"`
 45. Consulta `SELECT * FROM courses;`
 46. Consulta `SELECT * FROM courses WHERE course LIKE '_lgorithms';`
-47. Consulta SELECT * FROM courses WHERE course LIKE '%lgorithms';
-48. Consulta SELECT * FROM courses WHERE course LIKE 'Web%'; 
-49. Consulta SELECT * FROM courses WHERE course LIKE '_e%';
-50. Consulta SELECT * FROM courses WHERE course LIKE '% %';
-51. Consulta SELECT * FROM courses WHERE course NOT LIKE '% %';
-52. Consulta SELECT * FROM courses WHERE course LIKE '%A%';
-53. Consulta SELECT * FROM courses WHERE course ILIKE '%A%';
-54. Consulta SELECT * FROM courses WHERE course NOT ILIKE '%A%';
-55. Consulta SELECT * FROM courses WHERE course NOT ILIKE '%A%' AND course LIKE '% %';
-56. Agregar echo "$($PSQL "SELECT * FROM courses WHERE last_name ILIKE '%sa%' OR last_name LIKE %r_")"
-57. Correr ./student_info.sh
-58. Agregar echo -e "\nFirst name, last name, and GPA of students who have not selected a major and either their first name begins with 'D' or they have a GPA greater than 3.0:"
-59. Consulta SELECT * FROM students;
-60. Consulta SELECT * FROM students WHERE gpa IS NULL;
-61. Consulta SELECT * FROM students WHERE gpa IS NOT NULL;
-62. Consulta SELECT * FROM students WHERE major_id IS NULL;
-63. Consulta SELECT * FROM students WHERE major_id IS NULL AND gpa IS NOT NULL;
-64. Consulta SELECT * FROM students WHERE major_id IS NULL AND gpa IS NULL; 
-65. Agregar echo "$($PSQL "SELECT first_name, last_name, gpa FROM students WHERE major_id IS NULL AND (first_name LIKE 'D%' OR gpa > 3.0)")"
-66. Agregar echo -e "\nCourse name of the first five courses, in reverse alphabetical order, that have an 'e' as the second letter or end with an 's':"
-67. Consulta SELECT * FROM students ORDER BY gpa;
-68. Consulta SELECT * FROM students ORDER BY gpa DESC;
-69. Consulta SELECT * FROM students ORDER BY gpa DESC, first_name;
-70. Consulta SELECT * FROM students ORDER BY gpa DESC, first_name LIMIT 10;
-71. Consulta SELECT * FROM students WHERE gpa IS NOT NULL ORDER BY gpa DESC, first_name LIMIT 10;
-72. Agregar echo "$($PSQL "SELECT course FROM courses WHERE course LIKE '_e%' OR course LIKE '%s' ORDER BY course DESC LIMIT 5")"
-73. Correr ./student_info.sh
-74. Agregar echo -e "\nAverage GPA of all students rounded to two decimal places:"
-75. Consulta SELECT MIN(gpa) FROM students;
-76. Consulta SELECT MAX(gpa) FROM students;
-77. Consulta SELECT SUM(major_id) FROM students;
-78. Consulta SELECT AVG(major_id) FROM students;
-79. Consulta SELECT CEIL(AVG(major_id)) FROM students;
-80. Consulta SELECT ROUND(AVG(major_id)) FROM students;
-81. Consulta SELECT ROUND(AVG(major_id), 5) FROM students;
-82. Agregar echo "$($PSQL "SELECT ROUND(AVG(gpa), 2) FROM students")"
-83. Correr ./student_info.sh
-84. Agregar echo -e "\nMajor ID, total number of students in a column named 'number_of_students', and average GPA rounded to two decimal places in a column name 'average_gpa', for each major ID in the students table having a student count greater than 1:"
-85. Consulta SELECT COUNT(*) FROM majors;
-86. Consulta SELECT COUNT(*) FROM students;
-87. Consulta SELECT COUNT(major_id) FROM students;
-88. Consulta SELECT DISTINCT(major_id) FROM students;
-89. Consulta SELECT major_id FROM students GROUP BY major_id;
-90. Consulta SELECT major_id, COUNT(*) FROM students GROUP BY major_id;
-91. Consulta SELECT major_id, MIN(gpa) FROM students GROUP BY major_id;
-92. Consulta SELECT major_id, MIN(gpa), MAX(gpa) FROM students GROUP BY major_id;
-93. Consulta SELECT major_id, MIN(gpa), MAX(gpa) FROM students GROUP BY major_id HAVING MAX(gpa) = 4.0;
-94. Consulta SELECT major_id, MIN(gpa) AS min_gpa, MAX(gpa) FROM students GROUP BY major_id HAVING MAX(gpa) = 4.0;
-95. Consulta SELECT major_id, MIN(gpa) AS min_gpa, MAX(gpa) AS max_gpa FROM students GROUP BY major_id HAVING MAX(gpa) = 4.0;
-96. Consulta SELECT major_id, COUNT(*) AS number_of_students FROM students GROUP BY major_id;
-97. Consulta SELECT major_id, COUNT(*) AS number_of_students FROM students GROUP BY major_id HAVING COUNT(*) < 8;
-98. Añadir echo "$($PSQL "SELECT major_id, COUNT(*) AS number_of_students, ROUND(AVG(gpa),2) AS average_gpa FROM students GROUP BY major_id HAVING COUNT(*) > 1")"
-99. Correr ./student_info.sh
-100. Agregar echo -e "\nList of majors, in alphabetical order, that either no student is taking or has a student whose first name contains a case insensitive 'ma':"
+47. Consulta `SELECT * FROM courses WHERE course LIKE '%lgorithms';`
+48. Consulta `SELECT * FROM courses WHERE course LIKE 'Web%'; `
+49. Consulta `SELECT * FROM courses WHERE course LIKE '_e%';`
+50. Consulta `SELECT * FROM courses WHERE course LIKE '% %';`
+51. Consulta `SELECT * FROM courses WHERE course NOT LIKE '% %';`
+52. Consulta `SELECT * FROM courses WHERE course LIKE '%A%';`
+53. Consulta `SELECT * FROM courses WHERE course ILIKE '%A%';`
+55. Consulta `SELECT * FROM courses WHERE course NOT ILIKE '%A%' AND course LIKE '% %';
+56. Agregar `echo "$($PSQL "SELECT * FROM courses WHERE last_name ILIKE '%sa%' OR last_name LIKE %r_")"`
+57. Correr `./student_info.sh`
+58. Agregar `echo -e "\nFirst name, last name, and GPA of students who have not selected a major and either their first name begins with 'D' or they have a GPA greater than 3.0:"`
+59. Consulta `SELECT * FROM students;`
+60. Consulta `SELECT * FROM students WHERE gpa IS NULL;`
+61. Consulta `SELECT * FROM students WHERE gpa IS NOT NULL;`
+62. Consulta `SELECT * FROM students WHERE major_id IS NULL;`
+63. Consulta `SELECT * FROM students WHERE major_id IS NULL AND gpa IS NOT NULL;`
+64. Consulta `SELECT * FROM students WHERE major_id IS NULL AND gpa IS NULL;`
+65. Agregar `echo "$($PSQL "SELECT first_name, last_name, gpa FROM students WHERE major_id IS NULL AND (first_name LIKE 'D%' OR gpa > 3.0)")"`
+66. Agregar `echo -e "\nCourse name of the first five courses, in reverse alphabetical order, that have an 'e' as the second letter or end with an 's':"`
+67. Consulta `SELECT * FROM students ORDER BY gpa;`
+68. Consulta `SELECT * FROM students ORDER BY gpa DESC;`
+69. Consulta `SELECT * FROM students ORDER BY gpa DESC, first_name;`
+70. Consulta `SELECT * FROM students ORDER BY gpa DESC, first_name LIMIT 10;`
+71. Consulta `SELECT * FROM students WHERE gpa IS NOT NULL ORDER BY gpa DESC, first_name LIMIT 10;`
+72. Agregar `echo "$($PSQL "SELECT course FROM courses WHERE course LIKE '_e%' OR course LIKE '%s' ORDER BY course DESC LIMIT 5")"`
+73. Correr `./student_info.sh`
+74. Agregar `echo -e "\nAverage GPA of all students rounded to two decimal places:"`
+75. Consulta `SELECT MIN(gpa) FROM students;`
+76. Consulta `SELECT MAX(gpa) FROM students;`
+77. Consulta `SELECT SUM(major_id) FROM students;`
+78. Consulta `SELECT AVG(major_id) FROM students;`
+79. Consulta `SELECT CEIL(AVG(major_id)) FROM students;`
+80. Consulta `SELECT ROUND(AVG(major_id)) FROM students;`
+81. Consulta `SELECT ROUND(AVG(major_id), 5) FROM students;`
+82. Agregar `echo "$($PSQL "SELECT ROUND(AVG(gpa), 2) FROM students")"`
+83. Correr `./student_info.sh`
+84. Agregar `echo -e "\nMajor ID, total number of students in a column named 'number_of_students', and average GPA rounded to two decimal places in a column name 'average_gpa', for each major ID in the students table having a student count greater than 1:"`
+85. Consulta `SELECT COUNT(*) FROM majors;`
+86. Consulta `SELECT COUNT(*) FROM students;`
+87. Consulta `SELECT COUNT(major_id) FROM students;`
+88. Consulta `SELECT DISTINCT(major_id) FROM students;`
+89. Consulta `SELECT major_id FROM students GROUP BY major_id;`
+90. Consulta `SELECT major_id, COUNT(*) FROM students GROUP BY major_id;`
+91. Consulta `SELECT major_id, MIN(gpa) FROM students GROUP BY major_id;
+92. Consulta `SELECT major_id, MIN(gpa), MAX(gpa) FROM students GROUP BY major_id;`
+93. Consulta `SELECT major_id, MIN(gpa), MAX(gpa) FROM students GROUP BY major_id HAVING MAX(gpa) = 4.0;`
+94. Consulta `SELECT major_id, MIN(gpa) AS min_gpa, MAX(gpa) FROM students GROUP BY major_id HAVING MAX(gpa) = 4.0;`
+95. Consulta `SELECT major_id, MIN(gpa) AS min_gpa, MAX(gpa) AS max_gpa FROM students GROUP BY major_id HAVING MAX(gpa) = 4.0;`
+96. Consulta `SELECT major_id, COUNT(*) AS number_of_students FROM students GROUP BY major_id;`
+97. Consulta `SELECT major_id, COUNT(*) AS number_of_students FROM students GROUP BY major_id HAVING COUNT(*) < 8;`
+98. Añadir `echo "$($PSQL "SELECT major_id, COUNT(*) AS number_of_students, ROUND(AVG(gpa),2) AS average_gpa FROM students GROUP BY major_id HAVING COUNT(*) > 1")"`
+99. Correr `./student_info.sh`
+100. Agregar `echo -e "\nList of majors, in alphabetical order, that either no student is taking or has a student whose first name contains a case insensitive 'ma':"`
 101. Consulta SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id;
 102. Consulta SELECT * FROM students RIGHT JOIN majors ON students.major_id = majors.major_id;
 103. Consulta SELECT * FROM students INNER JOIN majors ON students.major_id = majors.major_id;
