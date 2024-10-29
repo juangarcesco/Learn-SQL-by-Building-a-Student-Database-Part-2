@@ -2,7 +2,7 @@
 Se inicia con echo en Bash, luego se conecta a la base de datos y usa psql para listar y consultar tablas.
 
 # Resumen
-Este es un resumen de los pasos principales para conectar, consultar y automatizar información en PostgreSQL usando Bash y SQL. Primero, se inicia con el comando echo en Bash, luego se conecta a la base de datos y se ejecutan comandos básicos en psql para listar, seleccionar y manipular tablas. En un segundo paso, se crea y configura un script de Bash (student_info.sh) para obtener información sobre los estudiantes, integrando consultas SQL condicionales y agregadas que imprimen datos específicos, como el GPA y los cursos. Finalmente, se usan JOINs y filtros avanzados en SQL para extraer y visualizar datos complejos según diversas condiciones.
+<p style="text-align: justify;">Este es un resumen de los pasos principales para conectar, consultar y automatizar información en PostgreSQL usando Bash y SQL. Primero, se inicia con el comando echo en Bash, luego se conecta a la base de datos y se ejecutan comandos básicos en psql para listar, seleccionar y manipular tablas. En un segundo paso, se crea y configura un script de Bash (student_info.sh) para obtener información sobre los estudiantes, integrando consultas SQL condicionales y agregadas que imprimen datos específicos, como el GPA y los cursos. Finalmente, se usan JOINs y filtros avanzados en SQL para extraer y visualizar datos complejos según diversas condiciones.</p>
 
 # Pasos
 
