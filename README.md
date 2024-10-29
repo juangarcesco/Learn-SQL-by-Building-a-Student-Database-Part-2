@@ -24,35 +24,35 @@ Nota: El shebang (#!) es una secuencia que se coloca al inicio de un script en s
 15. Correr con `./student_info.sh` en el bash
 16. Agregamos la variable  PSQL para en el script usar la base de datosm escribimos en student_info.sh el texto `PSQL="psql -X --username=freecodecamp --dbname=students --no-align --tuples-only -c"`
 17. Imprimimos un texto echo -e "\nFirst name, last name, and GPA of students with a 4.0 GPA:"
-18. Consulta SELECT * FROM students;
-19. Consulta SELECT first_name FROM students;
-20. Consulta SELECT first_name, last_name, gpa FROM students;
-21. Consulta condicionada con WHERE SELECT first_name, last_name, gpa FROM students WHERE gpa < 2.5;
-22. Consulta condicionada con WHERE SELECT first_name, last_name, gpa FROM students WHERE gpa >= 3.8;
-23. Consulta condicionada con WHERE  SELECT first_name, last_name, gpa FROM students WHERE gpa != 4.0;
-24. Con esta linea imprimimos la consulta de sql echo "$($PSQL "SELECT first_name, last_name, gpa FROM students WHERE gpa = 4.0;")" y 
-25. corremos en el bash
-26. Agregamos otro texto echo -e "\nAll course names whose first letter is before 'D' in the alphabet:"
-27. Consulta SELECT * FROM majors;
-28. Consulta SELECT * FROM majors WHERE major = 'Game Design';
-29. Consulta SELECT * FROM majors WHERE major != 'Game Design'; 
-30. Consulta SELECT * FROM majors WHERE major > 'Game Design';
-31. Consulta SELECT * FROM majors WHERE major >= 'Game Design';
-32. Consulta SELECT * FROM majors WHERE major < 'G';
-33. Agregar echo "$($PSQL "SELECT course FROM courses WHERE course < 'D'")" y 
-34. Correr ./student_info.sh
+18. Consulta `SELECT * FROM students;`
+19. Consulta `SELECT first_name FROM students;`
+20. Consulta `SELECT first_name, last_name, gpa FROM students;`
+21. Consulta condicionada con WHERE `SELECT first_name, last_name, gpa FROM students WHERE gpa < 2.5;`
+22. Consulta condicionada con WHERE `SELECT first_name, last_name, gpa FROM students WHERE gpa >= 3.8;`
+23. Consulta condicionada con WHERE `SELECT first_name, last_name, gpa FROM students WHERE gpa != 4.0;`
+24. Con esta linea imprimimos la consulta de sql `echo "$($PSQL "SELECT first_name, last_name, gpa FROM students WHERE gpa = 4.0;")"`y 
+25. corremos en el bash `./student_info.sh`
+26. Agregamos otro texto `echo -e "\nAll course names whose first letter is before 'D' in the alphabet:"`
+27. Consulta `SELECT * FROM majors;`
+28. Consulta `SELECT * FROM majors WHERE major = 'Game Design';`
+29. Consulta `SELECT * FROM majors WHERE major != 'Game Design';`
+30. Consulta `SELECT * FROM majors WHERE major > 'Game Design';`
+31. Consulta `SELECT * FROM majors WHERE major >= 'Game Design';`
+32. Consulta `SELECT * FROM majors WHERE major < 'G';`
+33. Agregar `echo "$($PSQL "SELECT course FROM courses WHERE course < 'D'")"` y 
+34. Correr `./student_info.sh`
 35. Agregar echo -e "\nFirst name, last name, and GPA of students whose last name begins with an 'R' or after and have a GPA greater than 3.8 or less than 2.0:"
-36. Consulta SELECT * FROM students; 
-37. Consulta SELECT * FROM students WHERE last_name < 'M';
-38. Consulta SELECT * FROM students WHERE last_name < 'M' OR gpa = 3.9;
-39. Consulta SELECT * FROM students WHERE last_name < 'M' AND gpa = 3.9 OR gpa < 2.3;
-40. Consulta SELECT * FROM students WHERE last_name < 'M' AND (gpa = 3.9 OR gpa < 2.3);
-41. Consulta SELECT * FROM students WHERE last_name < 'M' AND (gpa = 3.9 OR gpa < 2.3);
-42. Agregar echo "$($PSQL "SELECT first_name, last_name, gpa FROM students WHERE last_name >= 'R' AND (gpa > 3.8 OR gpa < 2.0)")"
-43. Correr ./student_info.sh 
-44. Agregar echo -e "\nLast name of students whose last name contains a case insensitive 'sa' or have an 'r' as the second to last letter:" 
-45. Consulta SELECT * FROM courses;
-46. Consulta SELECT * FROM courses WHERE course LIKE '_lgorithms';
+36. Consulta `SELECT * FROM students;`
+37. Consulta `SELECT * FROM students WHERE last_name < 'M';`
+38. Consulta `SELECT * FROM students WHERE last_name < 'M' OR gpa = 3.9;`
+39. Consulta `SELECT * FROM students WHERE last_name < 'M' AND gpa = 3.9 OR gpa < 2.3;`
+40. Consulta `SELECT * FROM students WHERE last_name < 'M' AND (gpa = 3.9 OR gpa < 2.3);`
+41. Consulta `SELECT * FROM students WHERE last_name < 'M' AND (gpa = 3.9 OR gpa < 2.3);`
+42. Agregar `echo "$($PSQL "SELECT first_name, last_name, gpa FROM students WHERE last_name >= 'R' AND (gpa > 3.8 OR gpa < 2.0)")"`
+43. Correr `./student_info.sh`
+44. Agregar `echo -e "\nLast name of students whose last name contains a case insensitive 'sa' or have an 'r' as the second to last letter:"`
+45. Consulta `SELECT * FROM courses;`
+46. Consulta `SELECT * FROM courses WHERE course LIKE '_lgorithms';`
 47. Consulta SELECT * FROM courses WHERE course LIKE '%lgorithms';
 48. Consulta SELECT * FROM courses WHERE course LIKE 'Web%'; 
 49. Consulta SELECT * FROM courses WHERE course LIKE '_e%';
@@ -140,6 +140,6 @@ Nota: El shebang (#!) es una secuencia que se coloca al inicio de un script en s
 131. Correr ./student_info.sh
 132. Agregar echo -e "\nList of courses, in alphabetical order, with only one student enrolled:"
 133. Agregar SELECT COUNT(course), COURSE FROM students INNER JOIN majors USING(major_id) INNER JOIN majors_courses USING(major_id) INNER JOIN courses USING(course_id) GROUP BY course;
-134. Correr ./student_info.sh
+134. Correr `./student_info.sh`
 
 
