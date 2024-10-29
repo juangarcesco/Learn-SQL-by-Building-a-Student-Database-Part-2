@@ -106,39 +106,39 @@ Nota: El shebang (#!) es una secuencia que se coloca al inicio de un script en s
 98. Añadir `echo "$($PSQL "SELECT major_id, COUNT(*) AS number_of_students, ROUND(AVG(gpa),2) AS average_gpa FROM students GROUP BY major_id HAVING COUNT(*) > 1")"`
 99. Correr `./student_info.sh`
 100. Agregar `echo -e "\nList of majors, in alphabetical order, that either no student is taking or has a student whose first name contains a case insensitive 'ma':"`
-101. Consulta SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id;
-102. Consulta SELECT * FROM students RIGHT JOIN majors ON students.major_id = majors.major_id;
-103. Consulta SELECT * FROM students INNER JOIN majors ON students.major_id = majors.major_id;
-104. Consulta SELECT * FROM majors LEFT JOIN students ON majors.major_id = students.major_id;
-105. Consulta SELECT * FROM majors INNER JOIN students ON majors.major_id = students.major_id;
-106. Consulta SELECT * FROM majors RIGHT JOIN students ON majors.major_id = students.major_id;
-107. Consulta SELECT * FROM majors FULL JOIN students ON majors.major_id = students.major_id;
-108. Consulta SELECT * FROM students INNER JOIN majors ON students.major_id = majors.major_id;
-109. Consulta SELECT major FROM students INNER JOIN majors ON students.major_id = majors.major_id;
-110. Consulta SELECT DISTINCT(major) FROM students INNER JOIN majors ON students.major_id = majors.major_id;
-111. Consulta SELECT * FROM students RIGHT JOIN majors ON students.major_id = majors.major_id;
-112. Cosulta SELECT * FROM students RIGHT JOIN majors ON students.major_id = majors.major_id WHERE student_id IS NULL;
-113. Consulta SELECT major FROM students RIGHT JOIN majors ON students.major_id = majors.major_id WHERE student_id IS NULL;
-114. Consulta SELECT * FROM students LEFT JOIN majors ON students.major_id = majors.major_id;
-115. Consulta SELECT * FROM students LEFT JOIN majors ON students.major_id = majors.major_id WHERE major='Data Science' OR gpa >= 3.8;
-116. Consulta SELECT first_name, last_name, major, gpa FROM students LEFT JOIN majors ON students.major_id = majors.major_id WHERE major='Data Science' OR gpa >= 3.8;
-117. Consulta SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id;
-118. Consulta SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id WHERE first_name LIKE '%ri%' OR major LIKE '%ri%';
-119. Consulta SELECT first_name, major FROM students FULL JOIN majors ON students.major_id = majors.major_id WHERE first_name LIKE '%ri%' OR major LIKE '%ri%';
-120. Agregar echo "$($PSQL "SELECT major FROM students FULL JOIN majors ON students.major_id = majors.major_id WHERE major IS NOT NULL AND (student_id IS NULL OR first_name ILIKE '%ma%') ORDER BY major")"
-121. Correr ./student_info.sh
-122. Agregar echo -e "\nList of unique courses, in reverse alphabetical order, that no student or 'Obie Hilpert' is taking:"
-123. Consulta SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id;
-124. Consulta SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id;
-125. Consulta SELECT students.major_id FROM students FULL JOIN majors AS m ON students.major_id = m.major_id;
-126. Consulta SELECT s.major_id FROM students AS s FULL JOIN majors AS m ON s.major_id = m.major_id;
-127. Consulta SELECT * FROM students FULL JOIN majors USING(major_id);
-128. Consulta SELECT * FROM students FULL JOIN majors USING(major_id) FULL JOIN majors_courses USING(major_id);
-129. Consulta SELECT * FROM students FULL JOIN majors USING(major_id) FULL JOIN majors_courses USING(major_id) FULL JOIN courses USING(course_id);
-130. Agregar echo "$($PSQL "SELECT DISTINCT(course) FROM students RIGHT JOIN majors USING(major_id) INNER JOIN majors_courses USING(major_id) INNER JOIN courses USING(course_id) WHERE (first_name = 'Obie' AND last_name = 'Hilpert') OR student_id IS NULL ORDER BY course DESC")"
-131. Correr ./student_info.sh
-132. Agregar echo -e "\nList of courses, in alphabetical order, with only one student enrolled:"
-133. Agregar SELECT COUNT(course), COURSE FROM students INNER JOIN majors USING(major_id) INNER JOIN majors_courses USING(major_id) INNER JOIN courses USING(course_id) GROUP BY course;
+101. Consulta `SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id;`
+102. Consulta `SELECT * FROM students RIGHT JOIN majors ON students.major_id = majors.major_id;`
+103. Consulta `SELECT * FROM students INNER JOIN majors ON students.major_id = majors.major_id;`
+104. Consulta `SELECT * FROM majors LEFT JOIN students ON majors.major_id = students.major_id;`
+105. Consulta `SELECT * FROM majors INNER JOIN students ON majors.major_id = students.major_id;`
+106. Consulta `SELECT * FROM majors RIGHT JOIN students ON majors.major_id = students.major_id;`
+107. Consulta `SELECT * FROM majors FULL JOIN students ON majors.major_id = students.major_id;`
+108. Consulta `SELECT * FROM students INNER JOIN majors ON students.major_id = majors.major_id;`
+109. Consulta `SELECT major FROM students INNER JOIN majors ON students.major_id = majors.major_id;`
+110. Consulta `SELECT DISTINCT(major) FROM students INNER JOIN majors ON students.major_id = majors.major_id;`
+111. Consulta `SELECT * FROM students RIGHT JOIN majors ON students.major_id = majors.major_id;`
+112. Cosulta `SELECT * FROM students RIGHT JOIN majors ON students.major_id = majors.major_id WHERE student_id IS NULL;`
+113. Consulta `SELECT major FROM students RIGHT JOIN majors ON students.major_id = majors.major_id WHERE student_id IS NULL;`
+114. Consulta `SELECT * FROM students LEFT JOIN majors ON students.major_id = majors.major_id;`
+115. Consulta `SELECT * FROM students LEFT JOIN majors ON students.major_id = majors.major_id WHERE major='Data Science' OR gpa >= 3.8;`
+116. Consulta `SELECT first_name, last_name, major, gpa FROM students LEFT JOIN majors ON students.major_id = majors.major_id WHERE major='Data Science' OR gpa >= 3.8;`
+117. Consulta `SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id;`
+118. Consulta `SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id WHERE first_name LIKE '%ri%' OR major LIKE '%ri%';`
+119. Consulta `SELECT first_name, major FROM students FULL JOIN majors ON students.major_id = majors.major_id WHERE first_name LIKE '%ri%' OR major LIKE '%ri%';`
+120. Agregar `echo "$($PSQL "SELECT major FROM students FULL JOIN majors ON students.major_id = majors.major_id WHERE major IS NOT NULL AND (student_id IS NULL OR first_name ILIKE '%ma%') ORDER BY major")"`
+121. Correr `./student_info.sh`
+122. Agregar `echo -e "\nList of unique courses, in reverse alphabetical order, that no student or 'Obie Hilpert' is taking:"`
+123. `Consulta SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id;`
+124. `Consulta SELECT * FROM students FULL JOIN majors ON students.major_id = majors.major_id;`
+125. `Consulta SELECT students.major_id FROM students FULL JOIN majors AS m ON students.major_id = m.major_id;`
+126. `Consulta SELECT s.major_id FROM students AS s FULL JOIN majors AS m ON s.major_id = m.major_id;`
+127. `Consulta SELECT * FROM students FULL JOIN majors USING(major_id);`
+128. Consulta `SELECT * FROM students FULL JOIN majors USING(major_id) FULL JOIN majors_courses USING(major_id);`
+129. Consulta `SELECT * FROM students FULL JOIN majors USING(major_id) FULL JOIN majors_courses USING(major_id) FULL JOIN courses USING(course_id);`
+130. Agregar `echo `"$($PSQL "SELECT DISTINCT(course) FROM students RIGHT JOIN majors USING(major_id) INNER JOIN majors_courses USING(major_id) INNER JOIN courses USING(course_id) WHERE (first_name = 'Obie' AND last_name = 'Hilpert') OR student_id IS NULL ORDER BY course DESC")"`
+131. Correr `./student_info.sh`
+132. Agregar `echo -e "\nList of courses, in alphabetical order, with only one student enrolled:"`
+133. Agregar `"$($PSQL "SELECT COUNT(course), COURSE FROM students INNER JOIN majors USING(major_id) INNER JOIN majors_courses USING(major_id) INNER JOIN courses USING(course_id) GROUP BY course;`
 134. Correr `./student_info.sh`
 
 
